@@ -1,0 +1,75 @@
+﻿@model Apple_Clone_Website.Models.Export
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 class="text-center">Edit</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Export</h4>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ExportID)
+
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.ExportedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 w-100">
+                @Html.EditorFor(model => model.ExportedDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ExportedDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.CreatedAt, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 w-100">
+                @Html.EditorFor(model => model.CreatedAt, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CreatedAt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.UpdatedAt, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 w-100">
+                @Html.EditorFor(model => model.UpdatedAt, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UpdatedAt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.IsDeleted, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 w-100">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsDeleted)
+                    @Html.ValidationMessageFor(model => model.IsDeleted, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 w-100">
+                @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.StoreID, "StoreID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 w-100">
+                @Html.DropDownList("StoreID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StoreID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            <div class="col-md-offset-2 col-md-10 w-100">
+                <input type="submit" value="Save" class="btn btn-dark w-100" />
+            </div>
+        </div>
+    </div>
+}

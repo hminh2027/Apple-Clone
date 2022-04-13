@@ -14,7 +14,16 @@ namespace Apple_Clone_Website.Models
     
     public partial class ProductColor
     {
-        public string ProductColorID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ProductColor()
+        {
+            this.Products = new HashSet<Product>();
+        }
+    
+        public int ProductColorID { get; set; }
         public string Color { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

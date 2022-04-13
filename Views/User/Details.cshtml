@@ -1,52 +1,52 @@
 ﻿@model Apple_Clone_Website.Models.User
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Profile";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-@{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-}
-
-@section styles{
-    <link href="~/Content/Css/detailUser.css" rel="stylesheet" />
-}
-<section class="user-detail">
-    <h1>My Profile</h1>
-    <ul>
-        <li>
-            <label for="userID">UserID:</label>
-            <p>@Html.DisplayFor(model => model.UserID)</p>
-        </li>
-        <li>
-            <label for="fullname">Fullname:</label>
-            <p>@Html.DisplayFor(model => model.Username)</p>
-        </li>
-        <li>
-            <label for="email">Email:</label>
-            <p>@Html.DisplayFor(model => model.Email)</p>
-        </li>
-        <li>
-            <label for="tel">Phone:</label>
-            <p>@Html.DisplayFor(model => model.Phone)</p>
-        </li>
-        <li>
-            <label for="birthday">Birthday:</label>
-            <p>@Html.DisplayFor(model => model.Birthday)</p>
-        </li>
-        <li>
-            <label for="birthday">Gender:</label>
-            <p>@Html.DisplayFor(model => model.Gender)</p>
-        </li>
-        <li>
-            <label for="birthday">Country:</label>
-            <p>@Html.DisplayFor(model => model.Country)</p>
-        </li>
-    </ul>
-</section>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Username }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                Username
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Country
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="max-width: 5rem">
+                @Html.DisplayFor(model => model.Username)
+            </td>
+            <td style="max-width: 5rem">
+                @Html.DisplayFor(model => model.Email)
+            </td>
+            <td style="max-width: 5rem">
+                @Html.DisplayFor(model => model.Phone)
+            </td>
+            <td style="max-width: 5rem">
+                @Html.DisplayFor(model => model.Gender)
+            </td>
+            <td style="max-width: 5rem">
+                @Html.DisplayFor(model => model.Country)
+            </td>
+            <td style="max-width: 5rem">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }, htmlAttributes: new { @class = "my-1 w-100 btn btn-dark" })
+                @Html.ActionLink("Delete", "Delete", new { id = Model.UserID }, htmlAttributes: new { @class = "my-1 w-100 btn btn-dark" })
+            </td>
+        </tr>
+    </tbody>
+</table>

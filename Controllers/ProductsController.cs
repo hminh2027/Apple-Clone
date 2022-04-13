@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Apple_Clone_Website.Models;
+using PagedList;
 
 namespace Apple_Clone_Website.Controllers
 {
@@ -15,27 +16,35 @@ namespace Apple_Clone_Website.Controllers
         private AppleStoreEntities db = new AppleStoreEntities();
 
         // GET: Products
-        public PartialViewResult Index()
+        public ActionResult Index(int? page)
         {
-            return PartialView(db.Products.ToList());
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("DangNhap", "User");
+            }
+  
+            var pageNumber = page ?? 1;
+            var pageSize = 5;
+            return View(db.Products.ToList().ToPagedList(pageNumber, pageSize));
         }
 
-        public PartialViewResult Color(string id)
+        public PartialViewResult Color(int id)
         {
             return PartialView(db.ProductColors.Where(model => model.ProductColorID == id).ToList());
         }
 
-        public PartialViewResult RelatedProducts(string id)
+        public PartialViewResult RelatedProducts(int id)
         {
             return PartialView(db.Products.Where(model => model.CategoryID == id).ToList());
         }
 
         // GET: Products/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
+            if (Session["user"] == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                return RedirectToAction("DangNhap", "User");
             }
             Product product = db.Products.SingleOrDefault(md => md.ProductID == id);
             if (product == null)
@@ -48,6 +57,11 @@ namespace Apple_Clone_Website.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
+            if (Session["user"] == null)
+            {
+
+                return RedirectToAction("DangNhap", "User");
+            }
             return View();
         }
 
@@ -69,11 +83,12 @@ namespace Apple_Clone_Website.Controllers
         }
 
         // GET: Products/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            if (Session["user"] == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                return RedirectToAction("DangNhap", "User");
             }
             Product product = db.Products.SingleOrDefault(md => md.ProductID == id);
             if (product == null)

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/Content/Css/style.css">
     <link rel="stylesheet" href="~/Content/Css/layout.css">
     <link rel="stylesheet" href="~/Content/Css/constant.css">
+    <link rel="stylesheet" href="~/Content/Css/invoice.css">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -27,27 +28,27 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-2 bg-body rounded">
         <div class="container-fluid text-uppercase">
-            <a href="#" class="navbar-brand">administrator</a>
+            <a href="/User/" class="navbar-brand">administrator</a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a href="#" class="nav-item nav-link active">Trang chủ</a>
+                    <a href="/User/" class="nav-item nav-link active">Trang chủ</a>
                     <div class="nav-item dropdown">
                         <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown">đơn hàng</div>
                         <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">đơn hàng đang đặt</a></li>
-                            <li><a href="#" class="dropdown-item">đơn nhập kho</a></li>
-                            <li><a href="#" class="dropdown-item">đơn xuất kho</a></li>
+                            <li><a href="@Url.Action( "Index", "Orders")" class="dropdown-item">đơn hàng đang đặt</a></li>
+                            <li><a href="@Url.Action( "Index", "Imports")" class="dropdown-item">đơn nhập kho</a></li>
+                            <li><a href="@Url.Action( "Index", "Exports")" class="dropdown-item">đơn xuất kho</a></li>
                         </ul>
                     </div>
                     <a href="@Url.Action( "Index", "Products")" class="px-2 nav-item nav-link">sản phẩm</a>
-                    <a href="#" class="nav-item nav-link">danh mục</a>
-                    <a href="#" class="nav-item nav-link">khách hàng</a>
-                    <a href="#" class="nav-item nav-link">nhà cung cấp</a>
-                    <a href="#" class="nav-item nav-link">cửa hàng</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                    <a href="@Url.Action( "Index", "Categories")" class="nav-item nav-link">danh mục</a>
+                    <a href="@Url.Action( "Index", "Customers")" class="nav-item nav-link">khách hàng</a>
+                    <a href="@Url.Action( "Index", "Suppliers")" class="nav-item nav-link">nhà cung cấp</a>
+                    <a href="@Url.Action( "Index", "Stores")" class="nav-item nav-link">cửa hàng</a>
+                    <a href=@Url.Action( "DangXuat", "User") class="nav-item nav-link"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
                 </div>
             </div>
         </div>

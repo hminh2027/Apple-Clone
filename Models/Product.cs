@@ -14,7 +14,15 @@ namespace Apple_Clone_Website.Models
     
     public partial class Product
     {
-        public string ProductID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.ExportDetails = new HashSet<ExportDetail>();
+            this.ImportDetails = new HashSet<ImportDetail>();
+            this.OrderDetails = new HashSet<OrderDetail>();
+        }
+    
+        public int ProductID { get; set; }
         public string Name { get; set; }
         public Nullable<decimal> UnitPrice { get; set; }
         public string Description { get; set; }
@@ -22,9 +30,19 @@ namespace Apple_Clone_Website.Models
         public Nullable<System.DateTime> CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
-        public string CategoryID { get; set; }
-        public string SupplierID { get; set; }
+        public Nullable<int> CategoryID { get; set; }
+        public Nullable<int> SupplierID { get; set; }
         public string Image { get; set; }
-        public string ProductColorID { get; set; }
+        public Nullable<int> ProductColorID { get; set; }
+    
+        public virtual Category Category { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ExportDetail> ExportDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ImportDetail> ImportDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ProductColor ProductColor { get; set; }
+        public virtual Supplier Supplier { get; set; }
     }
 }

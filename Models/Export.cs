@@ -14,13 +14,13 @@ namespace Apple_Clone_Website.Models
     
     public partial class Export
     {
-        public string ExportID { get; set; }
+        public int ExportID { get; set; }
         public Nullable<System.DateTime> ExportedDate { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
-        public string UserID { get; set; }
-        public string StoreID { get; set; }
+        public Nullable<int> UserID { get; set; }
+        public Nullable<int> StoreID { get; set; }
     
         public virtual ExportDetail ExportDetail { get; set; }
         public virtual Store Store { get; set; }

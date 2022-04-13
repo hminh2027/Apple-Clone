@@ -1,0 +1,55 @@
+﻿@using Apple_Clone_Website.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<Export>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "my-1 btn btn-outline-dark" })
+
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                ExportId
+            </th>
+            <th>
+                Exported Date
+            </th>
+            <th>
+                Customer
+            </th>
+            <th>
+                Store
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td style="max-width: 5rem">
+                    @Html.DisplayFor(modelItem => i.ExportID)
+                </td>
+                <td style="max-width: 5rem">
+                    @Html.DisplayFor(modelItem => i.ExportedDate)
+                </td>
+                <td style="max-width: 5rem">
+                    @Html.DisplayFor(modelItem => i.UserID)
+                </td>
+                <td style="max-width: 5rem">
+                    @Html.DisplayFor(modelItem => i.StoreID)
+                </td>
+                <td style="max-width: 5rem">
+                    @Html.ActionLink("Edit", "Edit", new { id = i.ExportID }, htmlAttributes: new { @class = "my-1 w-100 btn btn-dark" })
+                    @Html.ActionLink("Details", "Details", new { id = i.ExportID }, htmlAttributes: new { @class = "my-1 w-100 btn btn-dark" })
+                    @Html.ActionLink("Delete", "Delete", new { id = i.ExportID }, htmlAttributes: new { @class = "my-1 w-100 btn btn-dark" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

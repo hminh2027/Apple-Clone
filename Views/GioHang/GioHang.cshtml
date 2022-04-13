@@ -1,0 +1,44 @@
+﻿@using Apple_Clone_Website.Models
+@model List<GioHangItem>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GioHang</h2>
+
+<table>
+    <tr style="text-align:center">
+        <td>Product ID</td>
+        <td>Product Name</td>
+        <td>Số Lượng</td>
+        <td>Đơn giá</td>
+        <td>Thành tiền</td>
+        <td width="50px"></td>
+        <td width="50px"></td>
+        <td width="50px"></td>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center">
+            <td>@item.ProductID</td>
+            <td>@item.Name</td>
+            <td>@item.SoLuong</td>
+            <td>@item.UnitPrice</td>
+            <td>@item.dThanhTien</td>
+            <td><a href="@Url.Action("Details","Products", new { id = item.ProductID})">Chi tiết</a></td>
+            <td>@Html.ActionLink("Xoá", "XoaGioHang", new { @ProductID = item.ProductID })</td>
+            <td><input type="submit" value="Cập nhật" /></td>
+        </tr>
+    }
+    <tr>
+        <td colspan="4">Số lượng: @ViewBag.Tongsoluong</td>
+        <td colspan="5">Tổng tiền: @ViewBag.TongTien VND</td>
+    </tr>
+    <tr style="text-align:right">
+        <td colspan="9">
+            @Html.ActionLink("Xoá giỏ hàng", "XoaTatCaGioHang", "GioHang");
+        </td>
+    </tr>
+</table>

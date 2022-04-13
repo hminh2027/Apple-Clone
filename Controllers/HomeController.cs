@@ -22,6 +22,11 @@ namespace Apple_Clone_Website.Controllers
             return PartialView(list);
         }
 
+        public ActionResult ProductsByCategory(int id)
+        {
+            return View(db.Products.Where(model => model.CategoryID == id).ToList());
+        }
+
         public PartialViewResult LastestProducts()
         {
             var list = db.Products.Where(d => d.IsNew == true).ToList();

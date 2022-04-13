@@ -14,11 +14,12 @@ namespace Apple_Clone_Website.Models
     
     public partial class ExportDetail
     {
-        public string ExportID { get; set; }
+        public int ExportID { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<decimal> UnitPrice { get; set; }
-        public string ProductID { get; set; }
+        public Nullable<int> ProductID { get; set; }
     
         public virtual Export Export { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

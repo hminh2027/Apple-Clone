@@ -1,0 +1,50 @@
+﻿@using Apple_Clone_Website.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<Store>
+
+@{
+    ViewBag.Title = "Store";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "my-1 btn btn-outline-dark" })
+
+
+<table class="table  table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Image
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            var imageSrc = @Html.DisplayName(i.Image) + ".jpg";
+
+            <tr>
+                <td style="max-width: 5rem">
+                    @Html.DisplayFor(modelItem => i.Name)
+                </td>
+                <td style="max-width: 5rem">
+                    @Html.DisplayFor(modelItem => i.Description)
+                </td>
+                <td style="max-width: 5rem">
+                    <img style="max-height: 10rem" src="~/Content/Images/Stores/@imageSrc" alt="Category" />
+                </td>
+                <td style="max-width: 5rem">
+                    @Html.ActionLink("Edit", "Edit", new { id = i.StoreID }, htmlAttributes: new { @class = "my-1 w-100 btn btn-dark" })
+                    @Html.ActionLink("Delete", "Delete", new { id = i.StoreID }, htmlAttributes: new { @class = "my-1 w-100 btn btn-dark" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

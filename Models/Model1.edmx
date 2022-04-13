@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="CategoryID" />
           </Key>
-          <Property Name="CategoryID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="Image" Type="nvarchar" MaxLength="50" />
@@ -21,7 +21,8 @@
           <Key>
             <PropertyRef Name="CustomerID" />
           </Key>
-          <Property Name="CustomerID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Gender" Type="bit" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
@@ -34,58 +35,58 @@
           <Key>
             <PropertyRef Name="ExportID" />
           </Key>
-          <Property Name="ExportID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ExportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Quantity" Type="int" />
           <Property Name="UnitPrice" Type="money" />
-          <Property Name="ProductID" Type="nchar" MaxLength="10" />
+          <Property Name="ProductID" Type="int" />
         </EntityType>
         <EntityType Name="Exports">
           <Key>
             <PropertyRef Name="ExportID" />
           </Key>
-          <Property Name="ExportID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ExportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ExportedDate" Type="date" />
           <Property Name="CreatedAt" Type="date" />
           <Property Name="UpdatedAt" Type="date" />
           <Property Name="IsDeleted" Type="bit" />
-          <Property Name="UserID" Type="nchar" MaxLength="10" />
-          <Property Name="StoreID" Type="nchar" MaxLength="10" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="StoreID" Type="int" />
         </EntityType>
         <EntityType Name="ImportDetails">
           <Key>
             <PropertyRef Name="ImportID" />
           </Key>
-          <Property Name="ImportID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ImportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Quantity" Type="int" />
           <Property Name="UnitPrice" Type="money" />
-          <Property Name="ProductID" Type="nchar" MaxLength="10" />
+          <Property Name="ProductID" Type="int" />
         </EntityType>
         <EntityType Name="Imports">
           <Key>
             <PropertyRef Name="ImportID" />
           </Key>
-          <Property Name="ImportID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ImportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ImportedDate" Type="date" />
           <Property Name="CreatedAt" Type="date" />
           <Property Name="UpdatedAt" Type="date" />
           <Property Name="IsDeleted" Type="bit" />
-          <Property Name="UserID" Type="nchar" MaxLength="10" />
-          <Property Name="StoreID" Type="nchar" MaxLength="10" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="StoreID" Type="int" />
         </EntityType>
         <EntityType Name="OrderDetails">
           <Key>
             <PropertyRef Name="OrderID" />
           </Key>
-          <Property Name="OrderID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Quantity" Type="int" />
           <Property Name="UnitPrice" Type="money" />
-          <Property Name="ProductID" Type="nchar" MaxLength="10" />
+          <Property Name="ProductID" Type="int" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
             <PropertyRef Name="OrderID" />
           </Key>
-          <Property Name="OrderID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OrderedDate" Type="date" />
           <Property Name="ShipAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="OrderStatus" Type="nvarchar" MaxLength="50" />
@@ -93,14 +94,14 @@
           <Property Name="CreatedAt" Type="date" />
           <Property Name="UpdatedAt" Type="date" />
           <Property Name="IsDeleted" Type="bit" />
-          <Property Name="CustomerID" Type="nchar" MaxLength="10" />
-          <Property Name="PaymentTypeID" Type="nchar" MaxLength="10" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="PaymentTypeID" Type="int" />
         </EntityType>
         <EntityType Name="PaymentTypes">
           <Key>
             <PropertyRef Name="PaymentTypeID" />
           </Key>
-          <Property Name="PaymentTypeID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="PaymentTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="Image" Type="nvarchar" MaxLength="50" />
@@ -109,14 +110,14 @@
           <Key>
             <PropertyRef Name="ProductColorID" />
           </Key>
-          <Property Name="ProductColorID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ProductColorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Color" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
             <PropertyRef Name="ProductID" />
           </Key>
-          <Property Name="ProductID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="UnitPrice" Type="money" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
@@ -124,19 +125,19 @@
           <Property Name="CreatedAt" Type="date" />
           <Property Name="UpdatedAt" Type="date" />
           <Property Name="IsDeleted" Type="bit" />
-          <Property Name="CategoryID" Type="nchar" MaxLength="10" />
-          <Property Name="SupplierID" Type="nchar" MaxLength="10" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="SupplierID" Type="int" />
           <Property Name="Image" Type="nvarchar" MaxLength="50" />
-          <Property Name="ProductColorID" Type="nchar" MaxLength="10" />
+          <Property Name="ProductColorID" Type="int" />
         </EntityType>
         <EntityType Name="Stores">
           <Key>
             <PropertyRef Name="StoreID" />
           </Key>
-          <Property Name="StoreID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="StoreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
-          <Property Name="Image" Type="image" />
+          <Property Name="Image" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedAt" Type="date" />
           <Property Name="UpdatedAt" Type="date" />
           <Property Name="IsDeleted" Type="bit" />
@@ -145,7 +146,7 @@
           <Key>
             <PropertyRef Name="SupplierID" />
           </Key>
-          <Property Name="SupplierID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="Image" Type="nvarchar" MaxLength="50" />
@@ -157,7 +158,7 @@
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="UserID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
@@ -178,6 +179,18 @@
             </Principal>
             <Dependent Role="ExportDetails">
               <PropertyRef Name="ExportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExportDetails_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="ExportDetails" Type="Self.ExportDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ExportDetails">
+              <PropertyRef Name="ProductID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -217,6 +230,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ImportDetails_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="ImportDetails" Type="Self.ImportDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ImportDetails">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Imports_Stores">
           <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
           <End Role="Imports" Type="Self.Imports" Multiplicity="*" />
@@ -253,6 +278,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_OrderDetails_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Orders_Customers">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
@@ -277,6 +314,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_ProductColors">
+          <End Role="ProductColors" Type="Self.ProductColors" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductColors">
+              <PropertyRef Name="ProductColorID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProductColorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Suppliers">
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="AppleStoreModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
@@ -296,6 +369,10 @@
             <End Role="Exports" EntitySet="Exports" />
             <End Role="ExportDetails" EntitySet="ExportDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK_ExportDetails_Products" Association="Self.FK_ExportDetails_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ExportDetails" EntitySet="ExportDetails" />
+          </AssociationSet>
           <AssociationSet Name="FK_Exports_Stores" Association="Self.FK_Exports_Stores">
             <End Role="Stores" EntitySet="Stores" />
             <End Role="Exports" EntitySet="Exports" />
@@ -306,6 +383,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_ImportDetails_Imports" Association="Self.FK_ImportDetails_Imports">
             <End Role="Imports" EntitySet="Imports" />
+            <End Role="ImportDetails" EntitySet="ImportDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImportDetails_Products" Association="Self.FK_ImportDetails_Products">
+            <End Role="Products" EntitySet="Products" />
             <End Role="ImportDetails" EntitySet="ImportDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_Imports_Stores" Association="Self.FK_Imports_Stores">
@@ -320,6 +401,10 @@
             <End Role="Orders" EntitySet="Orders" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Products" Association="Self.FK_OrderDetails_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
           <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Orders" EntitySet="Orders" />
@@ -327,6 +412,18 @@
           <AssociationSet Name="FK_Orders_PaymentTypes" Association="Self.FK_Orders_PaymentTypes">
             <End Role="PaymentTypes" EntitySet="PaymentTypes" />
             <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_ProductColors" Association="Self.FK_Products_ProductColors">
+            <End Role="ProductColors" EntitySet="ProductColors" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Suppliers" Association="Self.FK_Products_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Products" EntitySet="Products" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -338,19 +435,21 @@
           <Key>
             <PropertyRef Name="CategoryID" />
           </Key>
-          <Property Name="CategoryID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedAt" Type="DateTime" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
           <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerID" />
           </Key>
-          <Property Name="CustomerID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Gender" Type="Boolean" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -364,23 +463,24 @@
           <Key>
             <PropertyRef Name="ExportID" />
           </Key>
-          <Property Name="ExportID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ExportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ProductID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ProductID" Type="Int32" />
           <NavigationProperty Name="Export" Relationship="Self.FK_ExportDetails_Exports" FromRole="ExportDetails" ToRole="Exports" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ExportDetails_Products" FromRole="ExportDetails" ToRole="Products" />
         </EntityType>
         <EntityType Name="Export">
           <Key>
             <PropertyRef Name="ExportID" />
           </Key>
-          <Property Name="ExportID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ExportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ExportedDate" Type="DateTime" Precision="0" />
           <Property Name="CreatedAt" Type="DateTime" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="StoreID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="StoreID" Type="Int32" />
           <NavigationProperty Name="ExportDetail" Relationship="Self.FK_ExportDetails_Exports" FromRole="Exports" ToRole="ExportDetails" />
           <NavigationProperty Name="Store" Relationship="Self.FK_Exports_Stores" FromRole="Exports" ToRole="Stores" />
           <NavigationProperty Name="User" Relationship="Self.FK_Exports_Users" FromRole="Exports" ToRole="Users" />
@@ -389,23 +489,24 @@
           <Key>
             <PropertyRef Name="ImportID" />
           </Key>
-          <Property Name="ImportID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ImportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ProductID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ProductID" Type="Int32" />
           <NavigationProperty Name="Import" Relationship="Self.FK_ImportDetails_Imports" FromRole="ImportDetails" ToRole="Imports" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ImportDetails_Products" FromRole="ImportDetails" ToRole="Products" />
         </EntityType>
         <EntityType Name="Import">
           <Key>
             <PropertyRef Name="ImportID" />
           </Key>
-          <Property Name="ImportID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ImportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ImportedDate" Type="DateTime" Precision="0" />
           <Property Name="CreatedAt" Type="DateTime" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="StoreID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="StoreID" Type="Int32" />
           <NavigationProperty Name="ImportDetail" Relationship="Self.FK_ImportDetails_Imports" FromRole="Imports" ToRole="ImportDetails" />
           <NavigationProperty Name="Store" Relationship="Self.FK_Imports_Stores" FromRole="Imports" ToRole="Stores" />
           <NavigationProperty Name="User" Relationship="Self.FK_Imports_Users" FromRole="Imports" ToRole="Users" />
@@ -414,17 +515,18 @@
           <Key>
             <PropertyRef Name="OrderID" />
           </Key>
-          <Property Name="OrderID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ProductID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ProductID" Type="Int32" />
           <NavigationProperty Name="Order" Relationship="Self.FK_OrderDetails_Orders" FromRole="OrderDetails" ToRole="Orders" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_OrderDetails_Products" FromRole="OrderDetails" ToRole="Products" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="OrderID" />
           </Key>
-          <Property Name="OrderID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OrderedDate" Type="DateTime" Precision="0" />
           <Property Name="ShipAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -432,8 +534,8 @@
           <Property Name="CreatedAt" Type="DateTime" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <Property Name="CustomerID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="PaymentTypeID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="PaymentTypeID" Type="Int32" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_Orders_Customers" FromRole="Orders" ToRole="Customers" />
           <NavigationProperty Name="OrderDetail" Relationship="Self.FK_OrderDetails_Orders" FromRole="Orders" ToRole="OrderDetails" />
           <NavigationProperty Name="PaymentType" Relationship="Self.FK_Orders_PaymentTypes" FromRole="Orders" ToRole="PaymentTypes" />
@@ -442,7 +544,7 @@
           <Key>
             <PropertyRef Name="PaymentTypeID" />
           </Key>
-          <Property Name="PaymentTypeID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="PaymentTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -452,14 +554,15 @@
           <Key>
             <PropertyRef Name="ProductColorID" />
           </Key>
-          <Property Name="ProductColorID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ProductColorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_ProductColors" FromRole="ProductColors" ToRole="Products" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ProductID" />
           </Key>
-          <Property Name="ProductID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -467,19 +570,25 @@
           <Property Name="CreatedAt" Type="DateTime" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <Property Name="CategoryID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="SupplierID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="SupplierID" Type="Int32" />
           <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProductColorID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ProductColorID" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
+          <NavigationProperty Name="ExportDetails" Relationship="Self.FK_ExportDetails_Products" FromRole="Products" ToRole="ExportDetails" />
+          <NavigationProperty Name="ImportDetails" Relationship="Self.FK_ImportDetails_Products" FromRole="Products" ToRole="ImportDetails" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Products" FromRole="Products" ToRole="OrderDetails" />
+          <NavigationProperty Name="ProductColor" Relationship="Self.FK_Products_ProductColors" FromRole="Products" ToRole="ProductColors" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Products_Suppliers" FromRole="Products" ToRole="Suppliers" />
         </EntityType>
         <EntityType Name="Store">
           <Key>
             <PropertyRef Name="StoreID" />
           </Key>
-          <Property Name="StoreID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="StoreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedAt" Type="DateTime" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
           <Property Name="IsDeleted" Type="Boolean" />
@@ -490,19 +599,20 @@
           <Key>
             <PropertyRef Name="SupplierID" />
           </Key>
-          <Property Name="SupplierID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedAt" Type="DateTime" Precision="0" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
           <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Suppliers" FromRole="Suppliers" ToRole="Products" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -516,6 +626,18 @@
           <NavigationProperty Name="Exports" Relationship="Self.FK_Exports_Users" FromRole="Users" ToRole="Exports" />
           <NavigationProperty Name="Imports" Relationship="Self.FK_Imports_Users" FromRole="Users" ToRole="Imports" />
         </EntityType>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Orders_Customers">
           <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Order" Multiplicity="*" />
@@ -537,6 +659,18 @@
             </Principal>
             <Dependent Role="ExportDetails">
               <PropertyRef Name="ExportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExportDetails_Products">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ExportDetails" Type="Self.ExportDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ExportDetails">
+              <PropertyRef Name="ProductID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -576,6 +710,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ImportDetails_Products">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ImportDetails" Type="Self.ImportDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ImportDetails">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Imports_Stores">
           <End Role="Stores" Type="Self.Store" Multiplicity="0..1" />
           <End Role="Imports" Type="Self.Import" Multiplicity="*" />
@@ -612,6 +758,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_OrderDetails_Products">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Orders_PaymentTypes">
           <End Role="PaymentTypes" Type="Self.PaymentType" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Order" Multiplicity="*" />
@@ -621,6 +779,30 @@
             </Principal>
             <Dependent Role="Orders">
               <PropertyRef Name="PaymentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_ProductColors">
+          <End Role="ProductColors" Type="Self.ProductColor" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductColors">
+              <PropertyRef Name="ProductColorID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProductColorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Suppliers">
+          <End Role="Suppliers" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="SupplierID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -639,12 +821,20 @@
           <EntitySet Name="Stores" EntityType="Self.Store" />
           <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
           <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_ExportDetails_Exports" Association="Self.FK_ExportDetails_Exports">
             <End Role="Exports" EntitySet="Exports" />
+            <End Role="ExportDetails" EntitySet="ExportDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExportDetails_Products" Association="Self.FK_ExportDetails_Products">
+            <End Role="Products" EntitySet="Products" />
             <End Role="ExportDetails" EntitySet="ExportDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_Exports_Stores" Association="Self.FK_Exports_Stores">
@@ -659,6 +849,10 @@
             <End Role="Imports" EntitySet="Imports" />
             <End Role="ImportDetails" EntitySet="ImportDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK_ImportDetails_Products" Association="Self.FK_ImportDetails_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ImportDetails" EntitySet="ImportDetails" />
+          </AssociationSet>
           <AssociationSet Name="FK_Imports_Stores" Association="Self.FK_Imports_Stores">
             <End Role="Stores" EntitySet="Stores" />
             <End Role="Imports" EntitySet="Imports" />
@@ -671,9 +865,21 @@
             <End Role="Orders" EntitySet="Orders" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Products" Association="Self.FK_OrderDetails_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
           <AssociationSet Name="FK_Orders_PaymentTypes" Association="Self.FK_Orders_PaymentTypes">
             <End Role="PaymentTypes" EntitySet="PaymentTypes" />
             <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_ProductColors" Association="Self.FK_Products_ProductColors">
+            <End Role="ProductColors" EntitySet="ProductColors" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Suppliers" Association="Self.FK_Products_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Products" EntitySet="Products" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -699,6 +905,7 @@
             <EntityTypeMapping TypeName="AppleStoreModel.Customer">
               <MappingFragment StoreEntitySet="Customers">
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />

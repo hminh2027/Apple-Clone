@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Apple_Clone_Website.Models;
@@ -10,6 +12,13 @@ namespace Apple_Clone.Controllers
     public class UserController : Controller
     {
         AppleStoreEntities db = new AppleStoreEntities();
+
+        public ActionResult DangXuat()
+        {
+            Session.Remove("user");
+            return RedirectToAction("DangNhap");
+        }
+
         // GET: User
         public ActionResult Index()
         {
@@ -45,16 +54,16 @@ namespace Apple_Clone.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            // Hash password
+            string hashedPw = MD5(collection["txtPassword"]);     
+
             try
             {
                 // TODO: Add insert logic here
                 User user = new User();
-                int idNum = 1 + db.Users.Count();
-                string id = "U" + idNum.ToString();
-                user.UserID = id;
-
+                
                 user.Username = collection["txtUsername"];
-                user.Password = collection["txtPassword"];
+                user.Password = hashedPw;
                 user.Email = collection["txtEmail"];
                 user.Phone = collection["txtTel"];
                 user.Birthday = Convert.ToDateTime(collection["txtBirthday"]);
@@ -65,6 +74,8 @@ namespace Apple_Clone.Controllers
                 user.UpdatedAt = DateTime.Now;
                 db.Users.Add(user);
                 db.SaveChanges();
+
+                
 
                 return RedirectToAction("DangNhap");
             }
@@ -82,8 +93,11 @@ namespace Apple_Clone.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Hash password
+                string hashedPw = MD5(collection["txtPassword"]);
+
                 string userName = collection["txtUsername"];
-                string passWord = collection["txtPassword"];
+                string passWord = hashedPw;
                 User user = db.Users.SingleOrDefault(n => n.Username == userName && n.Password == passWord);
                 if (user != null)
                 {
@@ -165,6 +179,24 @@ namespace Apple_Clone.Controllers
         public ActionResult Product()
         {
             return View();
+        }
+
+        private string MD5 (string str)
+        {
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+
+            byte[] bHash = md5.ComputeHash(Encoding.UTF8.GetBytes(str));
+
+            StringBuilder sbHash = new StringBuilder();
+
+            foreach (byte b in bHash)
+            {
+
+                sbHash.Append(String.Format("{0:x2}", b));
+
+            }
+
+            return sbHash.ToString();
         }
     }
 }

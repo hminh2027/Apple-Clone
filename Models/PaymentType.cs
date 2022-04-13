@@ -20,7 +20,7 @@ namespace Apple_Clone_Website.Models
             this.Orders = new HashSet<Order>();
         }
     
-        public string PaymentTypeID { get; set; }
+        public int PaymentTypeID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }

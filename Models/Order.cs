@@ -14,7 +14,7 @@ namespace Apple_Clone_Website.Models
     
     public partial class Order
     {
-        public string OrderID { get; set; }
+        public int OrderID { get; set; }
         public Nullable<System.DateTime> OrderedDate { get; set; }
         public string ShipAddress { get; set; }
         public string OrderStatus { get; set; }
@@ -22,8 +22,8 @@ namespace Apple_Clone_Website.Models
         public Nullable<System.DateTime> CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
-        public string CustomerID { get; set; }
-        public string PaymentTypeID { get; set; }
+        public Nullable<int> CustomerID { get; set; }
+        public Nullable<int> PaymentTypeID { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual OrderDetail OrderDetail { get; set; }

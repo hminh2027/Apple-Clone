@@ -1,0 +1,74 @@
+﻿@using Apple_Clone_Website.Models
+@model List<>
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DatHang</h2>
+
+<table>
+    <tr style="text-align:center">
+        <td>Product ID</td>
+        <td>Product Name</td>
+        <td>Số Lượng</td>
+        <td>Đơn giá</td>
+        <td>Thành tiền</td>
+        <td width="50px"></td>
+        <td width="50px"></td>
+        <td width="50px"></td>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center">
+            <td>@item.ProductID</td>
+            <td>@item.Name</td>
+            <td>@item.SoLuong</td>
+            <td>@item.UnitPrice</td>
+            <td>@item.dThanhTien</td>
+            <td><a href="@Url.Action("Details","Products", new { id = item.ProductID})">Chi tiết</a></td>
+            <td>@Html.ActionLink("Xoá", "XoaGioHang", new { @ProductID = item.ProductID })</td>
+            <td><input type="submit" value="Cập nhật" /></td>
+        </tr>
+    }
+    <tr>
+        <td colspan="4">Số lượng: @ViewBag.Tongsoluong</td>
+        <td colspan="5">Tổng tiền: @ViewBag.TongTien VND</td>
+    </tr>
+    <tr style="text-align:right">
+        <td colspan="9">
+            @Html.ActionLink("Xoá giỏ hàng", "XoaTatCaGioHang", "GioHang");
+        </td>
+    </tr>
+</table>
+
+
+@using (Html.BeginForm("DatHang", "GioHang", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <section class="basic-info">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <ul>
+            <li>
+                <label for="name">Name: </label>
+                @Html.TextBox("txtName", "", htmlAttributes: new { @id = "name", @name = "name", @required = "required" })
+            </li>
+            <li>
+                <label for="email">Email: </label>
+                @Html.TextBox("txtEmail", "", htmlAttributes: new { @id = "email", @name = "email", @type = "email", @required = "required" })
+            </li>
+            <li>
+                <label for="tel">Phone number: </label>
+                @Html.TextBox("txtTel", "", htmlAttributes: new { @id = "tel", @name = "tel", @type = "tel" })
+            </li>
+            <li>
+                <label for="address">Address: </label>
+                @Html.TextBox("txtAddress", "", htmlAttributes: new { @id = "address", @name = "address", @type = "text" })
+            </li>
+        </ul>
+    </section>
+    <section class="form-action">
+        <button class="btn btn-dark w-100 my-3 py-3 w-100">Submit</button>
+    </section>
+}

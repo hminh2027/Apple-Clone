@@ -1,0 +1,60 @@
+﻿@using Apple_Clone_Website.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<Customer>
+
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "my-1 btn btn-outline-dark" })
+
+
+<table class="table  table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Country
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td style="max-width: 5rem">
+                    @Html.DisplayFor(modelItem => i.Name)
+                </td>
+                <td style="max-width: 5rem">
+                    @Html.DisplayFor(modelItem => i.Gender)
+                </td>
+                <td style="max-width: 5rem">
+                    @Html.DisplayFor(modelItem => i.Email)
+                </td>
+                <td style="max-width: 5rem">
+                    @Html.DisplayFor(modelItem => i.Phone)
+                </td>
+                <td style="max-width: 5rem">
+                    @Html.DisplayFor(modelItem => i.Country)
+                </td>
+                <td style="max-width: 5rem">
+                    @Html.ActionLink("Edit", "Edit", new { id = i.CustomerID }, htmlAttributes: new { @class = "my-1 w-100 btn btn-dark" })
+                    @Html.ActionLink("Delete", "Delete", new { id = i.CustomerID }, htmlAttributes: new { @class = "my-1 w-100 btn btn-dark" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

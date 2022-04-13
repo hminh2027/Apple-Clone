@@ -14,13 +14,13 @@ namespace Apple_Clone_Website.Models
     
     public partial class Import
     {
-        public string ImportID { get; set; }
+        public int ImportID { get; set; }
         public Nullable<System.DateTime> ImportedDate { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
-        public string UserID { get; set; }
-        public string StoreID { get; set; }
+        public Nullable<int> UserID { get; set; }
+        public Nullable<int> StoreID { get; set; }
     
         public virtual ImportDetail ImportDetail { get; set; }
         public virtual Store Store { get; set; }

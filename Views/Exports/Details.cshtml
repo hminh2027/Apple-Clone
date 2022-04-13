@@ -1,0 +1,76 @@
+﻿@model Apple_Clone_Website.Models.Export
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+    <section class="back">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="invoice-wrapper">
+                        <div class="invoice-top">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="invoice-top-left">
+                                        <h2>@Html.DisplayFor(model => model.ExportID)</h2>
+
+                                        <h4>Export</h4>
+                                        <h6>@Html.DisplayFor(model => model.ExportedDate)</h6>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="invoice-top-right">
+                                        <h2>Apple Store</h2>
+                                        <h3>www.applestore.com</h3>
+                                        <h5>applestore@icloud.com</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="invoice-bottom">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="task-table-wrapper">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>PRODUCT ID</th>
+                                                    <th>UNIT PRICE</th>
+                                                    <th>QUANTITY</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><h4>@Html.DisplayFor(model => model.ExportDetail.ProductID)</h4></td>
+                                                    <td><h4>$@Html.DisplayFor(model => model.ExportDetail.UnitPrice)</h4></td>
+                                                    <td><h4>@Html.DisplayFor(model => model.ExportDetail.Quantity)</h4></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="clearfix"></div>
+                                <div class="col-xs-12">
+                                    <hr class="divider">
+                                </div>
+                                <div class="col-sm-4">
+                                    <h6 class="text-left">www.applestore.com</h6>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h6 class="text-center">applestore@icloud.com</h6>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h6 class="text-right">0123456789</h6>
+                                </div>
+                            </div>
+                            <div class="bottom-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

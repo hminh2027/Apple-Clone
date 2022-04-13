@@ -4,30 +4,36 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fbdd77d2426d4aed927d2229e8f26810" Name="Diagram1">
-        <EntityTypeShape EntityType="AppleStoreModel.Category" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppleStoreModel.Customer" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppleStoreModel.ExportDetail" Width="1.5" PointX="7.25" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppleStoreModel.Export" Width="1.5" PointX="5" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppleStoreModel.ImportDetail" Width="1.5" PointX="10.25" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppleStoreModel.Import" Width="1.5" PointX="8" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppleStoreModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppleStoreModel.Order" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppleStoreModel.PaymentType" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppleStoreModel.ProductColor" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppleStoreModel.Product" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppleStoreModel.Store" Width="1.5" PointX="2.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppleStoreModel.Supplier" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppleStoreModel.User" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
+      <Diagram DiagramId="0cbf3e7ad7e04bc6a3bb9fa448fce22c" Name="Diagram1">
+        <EntityTypeShape EntityType="AppleStoreModel.Category" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreModel.Customer" Width="1.5" PointX="0.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreModel.ExportDetail" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreModel.Export" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreModel.ImportDetail" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreModel.Import" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreModel.OrderDetail" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreModel.Order" Width="1.5" PointX="3" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreModel.PaymentType" Width="1.5" PointX="0.75" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreModel.ProductColor" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreModel.Product" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreModel.Store" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreModel.Supplier" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreModel.User" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <AssociationConnector Association="AppleStoreModel.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="AppleStoreModel.FK_Orders_Customers" ManuallyRouted="false" />
         <AssociationConnector Association="AppleStoreModel.FK_ExportDetails_Exports" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleStoreModel.FK_ExportDetails_Products" ManuallyRouted="false" />
         <AssociationConnector Association="AppleStoreModel.FK_Exports_Stores" ManuallyRouted="false" />
         <AssociationConnector Association="AppleStoreModel.FK_Exports_Users" ManuallyRouted="false" />
         <AssociationConnector Association="AppleStoreModel.FK_ImportDetails_Imports" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleStoreModel.FK_ImportDetails_Products" ManuallyRouted="false" />
         <AssociationConnector Association="AppleStoreModel.FK_Imports_Stores" ManuallyRouted="false" />
         <AssociationConnector Association="AppleStoreModel.FK_Imports_Users" ManuallyRouted="false" />
         <AssociationConnector Association="AppleStoreModel.FK_OrderDetails_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleStoreModel.FK_OrderDetails_Products" ManuallyRouted="false" />
         <AssociationConnector Association="AppleStoreModel.FK_Orders_PaymentTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleStoreModel.FK_Products_ProductColors" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleStoreModel.FK_Products_Suppliers" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

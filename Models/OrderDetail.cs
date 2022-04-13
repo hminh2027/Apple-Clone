@@ -14,11 +14,12 @@ namespace Apple_Clone_Website.Models
     
     public partial class OrderDetail
     {
-        public string OrderID { get; set; }
+        public int OrderID { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<decimal> UnitPrice { get; set; }
-        public string ProductID { get; set; }
+        public Nullable<int> ProductID { get; set; }
     
         public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

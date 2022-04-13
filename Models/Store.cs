@@ -21,10 +21,10 @@ namespace Apple_Clone_Website.Models
             this.Imports = new HashSet<Import>();
         }
     
-        public string StoreID { get; set; }
+        public int StoreID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
         public Nullable<bool> IsDeleted { get; set; }

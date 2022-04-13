@@ -4,12 +4,15 @@
 @foreach (var i in Model)
 {
     var imgName = i.Image + ".png";
+<a href="@Url.Action( "ProductsByCategory", "Home", new { id = i.CategoryID })">
     <li class="nav-list-item">
         <div class="product-nav-card">
             <img class="product-nav-card-image" src="~/Content/Images/Categories/@imgName" alt="category">
             <div class="product-nav-card-info">
-                <div class="product-nav-card-name">@Html.ActionLink(i.Name, "ProductList", "Shop", new { categories = i.CategoryID }, null)</div>
+                <div class="product-nav-card-name">@Html.DisplayName(i.Name)</div>
+
             </div>
         </div>
     </li>
+</a>
 }
