@@ -1,0 +1,8 @@
+﻿@using Apple_Clone_Website.Models
+@model List<ProductColor>
+
+@foreach (var i in Model)
+{
+    var color = i.Color.ToLower();
+    <div class="mt-4 color" style="background-color: @color;"></div>
+}

@@ -3,105 +3,47 @@
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var ImageSrc = Model.Image + ".jpg";
 }
 
-<h2>Details</h2>
+    <div class="detail-card">
+        <div class="row g-0">
+            <div class="col-md-6 border-end">
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="main_image"> <img src="~/Content/Images/Products/@ImageSrc" id="main_product_image" width="350"></div>
+                    <div class="thumbnail_images">
+                        <ul id="thumbnail">
+                            <li><img onclick="changeImage(this)" src="~/Content/Images/Products/@ImageSrc" width="70"></li>
+                            <li><img onclick="changeImage(this)" src="~/Content/Images/Products/@ImageSrc" width="70"></li>
+                            <li><img onclick="changeImage(this)" src="~/Content/Images/Products/@ImageSrc" width="70"></li>
+                            <li><img onclick="changeImage(this)" src="~/Content/Images/Products/@ImageSrc" width="70"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 right-side">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3>@Html.DisplayFor(model => model.Name)</h3>
+                    </div>
+                    <div class="mt-2 pr-3 content">
+                        <p>@Html.DisplayFor(model => model.Description)</p>
+                    </div>
+                    <h3>$@Html.DisplayFor(model => model.UnitPrice)</h3>
+                    <div class="mt-5">
+                        <span class="fw-bold">Color</span>
+                        @Html.Action("Color", "Products", new { id = Model.ProductColorID.Trim() })
+                    </div>
+                    <div class="buttons d-flex flex-row mt-5 gap-3"><button class="btn btn-outline-dark">Add to Basket</button> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2 class="my-5 fw-bold text-center text-uppercase" style="font-weight: bold">Related products</h2>
+    <div id="related-products" class="swiper mb-5">
+        <div class="swiper-wrapper">
+            @Html.Action("RelatedProducts", "Products", new { id = Model.CategoryID.Trim() })
+            <div class="swiper-pagination swiper-pagination2"></div>
+        </div>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UnitPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UnitPrice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsNew)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsNew)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedAt)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedAt)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdatedAt)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdatedAt)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsDeleted)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsDeleted)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CategoryID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CategoryID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SupplierID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SupplierID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductColorID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProductColorID)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    </div>

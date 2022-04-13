@@ -211,7 +211,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Css\animation.css" />
+    <Content Include="Content\Css\animations.css" />
+    <Content Include="Content\Css\constant.css" />
+    <Content Include="Content\Css\createUser.css" />
+    <Content Include="Content\Css\detailUser.css" />
+    <Content Include="Content\Css\global.css" />
+    <Content Include="Content\Css\layout.css" />
+    <Content Include="Content\Css\login.css" />
+    <Content Include="Content\Css\style.css" />
     <Content Include="Content\Images\Categories\category1.png" />
     <Content Include="Content\Images\Categories\category2.png" />
     <Content Include="Content\Images\Categories\category3.png" />
@@ -230,6 +237,8 @@
     <Content Include="Content\Images\Products\product7.jpg" />
     <Content Include="Content\Images\Products\product8.jpg" />
     <Content Include="Content\Images\Products\product9.jpg" />
+    <Content Include="Content\Js\index.js" />
+    <Content Include="Content\Js\swiper.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -291,10 +300,11 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\Color.cshtml" />
+    <Content Include="Views\Products\RelatedProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -20,6 +20,16 @@ namespace Apple_Clone_Website.Controllers
             return PartialView(db.Products.ToList());
         }
 
+        public PartialViewResult Color(string id)
+        {
+            return PartialView(db.ProductColors.Where(model => model.ProductColorID == id).ToList());
+        }
+
+        public PartialViewResult RelatedProducts(string id)
+        {
+            return PartialView(db.Products.Where(model => model.CategoryID == id).ToList());
+        }
+
         // GET: Products/Details/5
         public ActionResult Details(string id)
         {
@@ -27,7 +37,7 @@ namespace Apple_Clone_Website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = db.Products.SingleOrDefault(md => md.ProductID == id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -65,13 +75,14 @@ namespace Apple_Clone_Website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = db.Products.SingleOrDefault(md => md.ProductID == id);
             if (product == null)
             {
                 return HttpNotFound();
             }
             return View(product);
         }
+
 
         // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -113,15 +124,6 @@ namespace Apple_Clone_Website.Controllers
             db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

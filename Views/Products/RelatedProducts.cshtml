@@ -1,0 +1,21 @@
+﻿@using Apple_Clone_Website.Models
+@model List<Product>
+
+@foreach (var i in Model)
+{
+    var imgName = i.Image + ".jpg";
+<div class="swiper-slide">
+    <a href="@Url.Action( "Details", "Products", new { id = i.ProductID.Trim() })">
+        <div class="card" style="height: 300px !important;">
+            <div class="content">
+                <div class="content-info">
+                    <div class="content-name">@Html.DisplayName(i.Name)</div>
+                    <div class="content-title">buy now</div>
+                </div>
+                <img class="content-image" src="~/Content/Images/Products/@imgName" alt="product">
+            </div>
+        </div>
+    </a>
+</div>
+}
+
